@@ -1,0 +1,18 @@
+digraph PolynomialIdeal {
+  rankdir=LR;
+  graph [fontname="Helvetica"];
+  node [fontname="Helvetica"];
+  ideal [shape=box, style="rounded", label="Ideal\nQ[x,y]/lex\nreduced"];
+  var_x [shape=ellipse, label="x"];
+  var_y [shape=ellipse, label="y"];
+  g1 [shape=box, label="g1: x-y^2"];
+  ideal -> g1;
+  lt1 [shape=diamond, label="LT: x"];
+  g1 -> lt1;
+  lt1 -> var_x [label="1"];
+  g2 [shape=box, label="g2: y^3-1"];
+  ideal -> g2;
+  lt2 [shape=diamond, label="LT: y^3"];
+  g2 -> lt2;
+  lt2 -> var_y [label="3"];
+}

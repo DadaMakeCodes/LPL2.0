@@ -1,0 +1,20 @@
+// If/else, while, assegnamento e variabili locali ai blocchi.
+ring Q[x,y] order deglex;
+
+var I = ideal{x^2-y; x*y-1};
+var counter = 0;
+var even_iterations = 0;
+
+while counter < 3 do
+    if counter % 2 == 0 then
+        var local_basis = reduced(I);
+        show local_basis;
+        even_iterations <- even_iterations + 1;
+    else
+        print counter;
+    endif;
+    counter <- counter + 1;
+done;
+
+print even_iterations;
+print counter;

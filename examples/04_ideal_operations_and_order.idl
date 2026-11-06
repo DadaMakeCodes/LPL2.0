@@ -1,0 +1,16 @@
+// Somma, prodotto e cambio dell'ordine monomiale.
+ring Q[x,y] order lex;
+
+var I = ideal{x; y^2};
+var J = ideal{x-y; y^3-1};
+
+var S = I + J;
+var P = ideal_product(I, J);
+var Pgrev = change_order(P, "degrevlex");
+
+show S;
+show Pgrev;
+print subset(P, I);
+print ring_name(Pgrev);
+
+visualize Pgrev to "../output/04_product_degrevlex.dot";

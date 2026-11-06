@@ -1,0 +1,20 @@
+// Funzioni pure, closure con scoping lessicale e let binding.
+ring Q[x,y] order lex;
+
+function canonical(I) = reduced(I);
+function same_ideal(I, J) = equal(canonical(I), canonical(J));
+
+var I = ideal{x^2-y; x*y-1};
+var J = ideal{x-y^2; y^3-1};
+
+print same_ideal(I, J);
+var size = let G = canonical(I) in generator_count(G);
+print size;
+
+// La funzione cattura il vecchio binding di threshold.
+var threshold = 1;
+function larger(n) = n > threshold;
+var threshold = 100;
+print larger(2);
+
+assert same_ideal(I, J);

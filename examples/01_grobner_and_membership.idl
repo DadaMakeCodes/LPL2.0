@@ -1,0 +1,11 @@
+// Base di Gröbner, appartenenza e forma normale.
+ring Q[x,y] order lex;
+
+var I = ideal{x^2-y; x*y-1};
+var G = reduced(I);
+
+show G;
+print contains(I, poly{x^3-x*y});
+print normalform(poly{x^4}, I);
+
+visualize G to "../output/01_grobner.dot";
